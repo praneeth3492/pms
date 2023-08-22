@@ -40,6 +40,45 @@ $stmt1->close();
 <html lang="en">
 
 <head>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.yes-no-toggle .toggle-buttons {
+    display: flex;
+}
+
+.yes-no-toggle .toggle-input {
+    display: none;
+}
+
+.yes-no-toggle .toggle-label {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #333;
+}
+
+.yes-no-toggle .toggle-input.null:checked + .toggle-label {
+    background-color: grey;
+}
+
+.yes-no-toggle .toggle-input.yes:checked + .toggle-label {
+    background-color: green;
+    color: #fff;
+}
+
+.yes-no-toggle .toggle-input.no:checked + .toggle-label {
+    background-color: red;
+    color: #fff;
+}
+
+
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Dashboard</title>
@@ -54,12 +93,13 @@ $stmt1->close();
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="sidebar sidebar-gestures">
+    <div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -235,128 +275,167 @@ $stmt1->close();
     </div>
 
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid col-md-8" style="left: 350px; margin-top:30px;">
-            <h2><?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?>Access & Optimise</h2>
+    <div class="main-content">
+        <div class="container-fluid form-container">
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> <?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?></li> <!-- Replace with the variable containing the project name -->
+    </ol>
+</nav>
+      
                
             <form method="post" action="save_access_optimize.php" id="access_optimize">
             <input type="hidden" name="project_id" id="project_id" value="<?php echo $project_id; ?>">
                 <div class="card">
-                        <div class="row">
+                        <div class="row"> 
 
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">GMB Accounts</label>
-                                        <input type="text" name="gmb_accounts" id="gmb_accounts" class="form-control" placeholder="GMB Accounts"  value="<?php echo isset($project_data['gmb_accounts']) ? $project_data['gmb_accounts'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
+                        <div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="gmb-accounts">GMB Accounts</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="gmb-accounts-yes" name="gmb_accounts" value="yes" class="toggle-input yes" <?php echo isset($project_data['gmb_accounts']) && $project_data['gmb_accounts'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="gmb-accounts-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="gmb-accounts-no" name="gmb_accounts" value="no" class="toggle-input no" <?php echo !isset($project_data['gmb_accounts']) || $project_data['gmb_accounts'] != 'yes' ? 'checked' : ''; ?>>
+            <label for="gmb-accounts-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">GMB Briefcase</label>
-                                        <input type="text" name="gmb_briefcase" id="gmb_briefcase"  value="<?php echo isset($project_data['gmb_briefcase']) ? $project_data['gmb_briefcase'] : ''; ?>" class="form-control" placeholder="GMB Briefcase" aria-describedby="helpId">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">GMB Access</label>
-                                        <input type="text" name="gmb_access" id="gmb_access"  value="<?php echo isset($project_data['gmb_access']) ? $project_data['gmb_access'] : ''; ?>" class="form-control" placeholder="GMB Access" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="gmb-briefcase">GMB Briefcase</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="gmb-briefcase-yes" name="gmb_briefcase" value="yes" class="toggle-input yes" <?php echo isset($project_data['gmb_briefcase']) && $project_data['gmb_briefcase'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="gmb-briefcase-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="gmb-briefcase-no" name="gmb_briefcase" value="no" class="toggle-input no" <?php echo isset($project_data['gmb_briefcase']) && $project_data['gmb_briefcase'] == 'no' ? 'checked' : ''; ?>>
+            <label for="gmb-briefcase-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">KW #tags</label>
-                                        <input type="text" name="kw_tags" id="kw_tags" class="form-control" placeholder="KW #tags"  value="<?php echo isset($project_data['kw_tags']) ? $project_data['kw_tags'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="gmb-access">GMB Access</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="gmb-access-yes" name="gmb_access" value="yes" class="toggle-input yes" <?php echo isset($project_data['gmb_access']) && $project_data['gmb_access'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="gmb-access-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="gmb-access-no" name="gmb_access" value="no" class="toggle-input no" <?php echo isset($project_data['gmb_access']) && $project_data['gmb_access'] == 'no' ? 'checked' : ''; ?>>
+            <label for="gmb-access-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="kw-tags">KW #tags</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="kw-tags-yes" name="kw_tags" value="yes" class="toggle-input yes" <?php echo isset($project_data['kw_tags']) && $project_data['kw_tags'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="kw-tags-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="kw-tags-no" name="kw_tags" value="no" class="toggle-input no" <?php echo isset($project_data['kw_tags']) && $project_data['kw_tags'] == 'no' ? 'checked' : ''; ?>>
+            <label for="kw-tags-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="kw-reviews">KW Reviews</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="kw-reviews-yes" name="kw_reviews" value="yes" class="toggle-input yes" <?php echo isset($project_data['kw_reviews']) && $project_data['kw_reviews'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="kw-reviews-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="kw-reviews-no" name="kw_reviews" value="no" class="toggle-input no" <?php echo isset($project_data['kw_reviews']) && $project_data['kw_reviews'] == 'no' ? 'checked' : ''; ?>>
+            <label for="kw-reviews-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="kw-replies">KW Replies</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="kw-replies-yes" name="kw_replies" value="yes" class="toggle-input yes" <?php echo isset($project_data['kw_replies']) && $project_data['kw_replies'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="kw-replies-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="kw-replies-no" name="kw_replies" value="no" class="toggle-input no" <?php echo isset($project_data['kw_replies']) && $project_data['kw_replies'] == 'no' ? 'checked' : ''; ?>>
+            <label for="kw-replies-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="kw-qa">KW Q&A</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="kw-qa-yes" name="kw_qa" value="yes" class="toggle-input yes" <?php echo isset($project_data['kw_qa']) && $project_data['kw_qa'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="kw-qa-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="kw-qa-no" name="kw_qa" value="no" class="toggle-input no" <?php echo isset($project_data['kw_qa']) && $project_data['kw_qa'] == 'no' ? 'checked' : ''; ?>>
+            <label for="kw-qa-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="kw-tracking">KW Tracking</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="kw-tracking-yes" name="kw_tracking" value="yes" class="toggle-input yes" <?php echo isset($project_data['kw_tracking']) && $project_data['kw_tracking'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="kw-tracking-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="kw-tracking-no" name="kw_tracking" value="no" class="toggle-input no" <?php echo isset($project_data['kw_tracking']) && $project_data['kw_tracking'] == 'no' ? 'checked' : ''; ?>>
+            <label for="kw-tracking-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group yes-no-toggle">
+        <label for="oviond-setup">Oviond Setup</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="oviond-setup-yes" name="oviond_setup" value="yes" class="toggle-input yes" <?php echo isset($project_data['oviond_setup']) && $project_data['oviond_setup'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="oviond-setup-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="oviond-setup-no" name="oviond_setup" value="no" class="toggle-input no" <?php echo isset($project_data['oviond_setup']) && $project_data['oviond_setup'] == 'no' ? 'checked' : ''; ?>>
+            <label for="oviond-setup-no" class="toggle-label">No</label>
+        </div>
+    </div>
+</div>
+ <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">FB Page Access</label>
-                                        <input type="text" name="fb_page_access" id="fb_page_access" class="form-control" placeholder="FB Page Access"  value="<?php echo isset($project_data['fb_page_access']) ? $project_data['fb_page_access'] : ''; ?>"  aria-describedby="helpId">
+                                        <input type="text" name="fb_page_access" id="fb_page_access" class="form-control" placeholder="Provide FB Link"  value="<?php echo isset($project_data['fb_page_access']) ? $project_data['fb_page_access'] : ''; ?>"  aria-describedby="helpId">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">KW Reviews</label>
-                                        <input type="text" name="kw_reviews" id="kw_reviews" class="form-control" placeholder="KW Reviews"  value="<?php echo isset($project_data['kw_reviews']) ? $project_data['kw_reviews'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
+                               
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Instagram Access</label>
-                                        <input type="text" name="instagram_access" id="instagram_access" class="form-control" placeholder="Instagram Access"  value="<?php echo isset($project_data['instagram_access']) ? $project_data['instagram_access'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">KW Replies</label>
-                                        <input type="text" name="kw_replies" id="kw_replies" class="form-control" placeholder="KW Replies" value="<?php echo isset($project_data['kw_replies']) ? $project_data['kw_replies'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">YouTube Access</label>
-                                        <input type="text" name="youTube_access" id="youTube_access" class="form-control" placeholder="YouTube Access" value="<?php echo isset($project_data['youTube_access']) ? $project_data['youTube_access'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">KW  Q&A</label>
-                                        <input type="text" name="kw_qa" id="kw_qa" class="form-control" value="<?php echo isset($project_data['kw_qa']) ? $project_data['kw_qa'] : ''; ?>" placeholder="KW  Q&A" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">GMB Optimise</label>
-                                        <input type="text" name="gmb_optimise" id="gmb_optimise" class="form-control" placeholder="GMB Optimise" value="<?php echo isset($project_data['gmb_optimise']) ? $project_data['gmb_optimise'] : ''; ?>"  aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">KW Tracking</label>
-                                        <input type="text" name="kw_tracking" id="kw_tracking" class="form-control" placeholder="KW Tracking" value="<?php echo isset($project_data['kw_tracking']) ? $project_data['kw_tracking'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">FB Page Optimise</label>
-                                        <input type="text" name="fb_page_optimise" id="fb_page_optimise" class="form-control" placeholder="FB Page Optimise" value="<?php echo isset($project_data['fb_page_optimise']) ? $project_data['fb_page_optimise'] : ''; ?>" aria-describedby="helpId">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Oviond Setup</label>
-                                        <input type="text" name="oviond_setup" id="oviond_setup" class="form-control" placeholder="Oviond Setup" value="<?php echo isset($project_data['oviond_setup']) ? $project_data['oviond_setup'] : ''; ?>" aria-describedby="helpId">
+                                        <input type="text" name="instagram_access" id="instagram_access" class="form-control" placeholder="Provide Instagram Link"  value="<?php echo isset($project_data['instagram_access']) ? $project_data['instagram_access'] : ''; ?>" aria-describedby="helpId">
                                     </div>
                                 </div>
 
                                 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Instagram Optimise</label>
-                                        <input type="text" name="instagram_optimise" id="instagram_optimise" class="form-control" value="<?php echo isset($project_data['instagram_optimise']) ? $project_data['instagram_optimise'] : ''; ?>" placeholder="Instagram Optimise" aria-describedby="helpId">
-                                    </div>
-                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">YouTube Optimise</label>
-                                        <input type="text" name="youtube_optimise" id="youtube_optimise" class="form-control" placeholder="YouTube Optimise" value="<?php echo isset($project_data['youtube_optimise']) ? $project_data['youtube_optimise'] : ''; ?>" aria-describedby="helpId">
+                                        <label for="">YouTube Access</label>
+                                        <input type="text" name="youTube_access" id="youTube_access" class="form-control" placeholder="Provide YouTube Link" value="<?php echo isset($project_data['youTube_access']) ? $project_data['youTube_access'] : ''; ?>" aria-describedby="helpId">
                                     </div>
                                 </div>
+
+                             
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">GMB Optimise</label>
+                                        <input type="text" name="gmb_optimise" id="gmb_optimise" class="form-control" placeholder="Provide GMB Link" value="<?php echo isset($project_data['gmb_optimise']) ? $project_data['gmb_optimise'] : ''; ?>"  aria-describedby="helpId">
+                                    </div>
+                                </div>
+  
                         </div>
 
 

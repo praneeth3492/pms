@@ -54,13 +54,14 @@ $stmt1->close();
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 </head>
 
 <body>
 
-    <div class="sidebar sidebar-gestures">
+    <div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -235,10 +236,17 @@ $stmt1->close();
         </div>
     </div>
 
+   
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid col-md-8" style="left: 350px; margin-top:30px;">
-            <h2><?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?>Project Launch</h2>
+    <div class="main-content">
+        <div class="container-fluid form-container">
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> <?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?></li> <!-- Replace with the variable containing the project name -->
+    </ol>
+</nav>
                
             <form method="post" action="save_project_launch.php" id="project_launch">
             <input type="hidden" name="project_id" id="project_id" value="<?php echo $project_id; ?>">

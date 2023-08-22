@@ -715,7 +715,7 @@ a.dt-button.active:not(.disabled) {
 /*    Header
 ---------------*/
 .header {
-  background: #ffffff;
+  background: #efebe3;
   position: fixed;
   width: 100%;
   min-height: 50px;

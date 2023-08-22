@@ -26,6 +26,7 @@ require_once "config.php";
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <style>
         /* .row:nth-child(even) {
             background-color: #f2f2f2;
@@ -40,7 +41,7 @@ require_once "config.php";
 
 <body>
 
-<div class="sidebar sidebar-gestures">
+<div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -194,8 +195,15 @@ require_once "config.php";
     </div>
 
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid col-md-8" style="left: 350px;">
+    <div class="main-content">
+        <div class="container-fluid form-container">
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> <?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?></li> <!-- Replace with the variable containing the project name -->
+    </ol>
+</nav>
                <div class="row" style="margin-top: 30px;">
                <?php
             $manager_id = $_SESSION['manager_id'];

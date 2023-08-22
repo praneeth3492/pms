@@ -14,21 +14,15 @@ $gmb_accounts     =  $_POST['gmb_accounts'];
 $gmb_briefcase    =  $_POST['gmb_briefcase'];
 $gmb_access         =  $_POST['gmb_access']; 
 $kw_tags      =  $_POST['kw_tags'];
-$fb_page_access      =  $_POST['fb_page_access'];
-$kw_reviews       =  $_POST['kw_reviews'];
-$instagram_access    =  $_POST['instagram_access'];
 $kw_replies  =  $_POST['kw_replies'];
-$youTube_access    =  $_POST['youTube_access'];
 $kw_qa    =  $_POST['kw_qa'];
-$gmb_optimise    =  $_POST['gmb_optimise'];
-$kw_tracking    =  $_POST['kw_tracking'];
-$fb_page_optimise    =  $_POST['fb_page_optimise'];
+$kw_reviews       =  $_POST['kw_reviews'];
+$kw_tracking    =  $_POST['kw_tracking']; 
 $oviond_setup    =  $_POST['oviond_setup'];
-$instagram_optimise    =  $_POST['instagram_optimise'];
-$youtube_optimise    =  $_POST['youtube_optimise'];
-
-
-
+$fb_page_access      =  $_POST['fb_page_access'];
+$instagram_access    =  $_POST['instagram_access'];
+$youTube_access    =  $_POST['youTube_access'];
+$gmb_optimise    =  $_POST['gmb_optimise'];
 
 
 // Check if a record with the given client_id exists
@@ -41,43 +35,37 @@ if ($result->num_rows > 0) {
     
     // Update the record
     $sql = "UPDATE access_optimise SET 
-        gmb_accounts = ?,
-        gmb_briefcase = ?,
-        gmb_access = ?,
-        kw_tags = ?,
-        fb_page_access = ?,
-        kw_reviews = ?,
-        instagram_access = ?,
-        kw_replies = ?,
-        youTube_access = ?,
-        kw_qa = ?,
-        gmb_optimise = ?,
-        kw_tracking = ?,
-        fb_page_optimise = ?,
-        oviond_setup = ?,
-        instagram_optimise = ?,
-        youtube_optimise = ?
-        WHERE project_id = ?";
-
+    gmb_accounts = ?,
+    gmb_briefcase = ?,
+    gmb_access = ?,
+    kw_tags = ?,
+    kw_reviews = ?,
+    kw_replies = ?,
+    kw_qa = ?,
+    kw_tracking = ?,
+    oviond_setup = ?,
+    fb_page_access = ?,        
+    instagram_access = ?,        
+    youTube_access = ?,   
+    gmb_optimise = ?   
+    WHERE project_id = ?";
+ 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssssssssi",
+        "sssssssssssssi",
         $gmb_accounts,
         $gmb_briefcase,
         $gmb_access,
         $kw_tags,
-        $fb_page_access,
         $kw_reviews,
-        $instagram_access,
         $kw_replies,
-        $youTube_access,
         $kw_qa,
-        $gmb_optimise,
         $kw_tracking,
-        $fb_page_optimise,
         $oviond_setup,
-        $instagram_optimise,
-        $youtube_optimise,
+        $fb_page_access,        
+        $instagram_access,      
+        $youTube_access,       
+        $gmb_optimise,        
         $project_id
     );
     
@@ -91,40 +79,40 @@ if ($result->num_rows > 0) {
         gmb_briefcase,
         gmb_access,
         kw_tags,
-        fb_page_access,
         kw_reviews,
-        instagram_access,
         kw_replies,
-        youTube_access,
         kw_qa,
-        gmb_optimise,
         kw_tracking,
-        fb_page_optimise,
         oviond_setup,
-        instagram_optimise,
-        youtube_optimise
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        fb_page_access,        
+        instagram_access,        
+        youTube_access,        
+        gmb_optimise
+       
+      
+        
+     
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "issssssssssssssss",
+        "isssssssssssss",
         $project_id,
         $gmb_accounts,
         $gmb_briefcase,
         $gmb_access,
         $kw_tags,
-        $fb_page_access,
         $kw_reviews,
-        $instagram_access,
         $kw_replies,
-        $youTube_access,
         $kw_qa,
-        $gmb_optimise,
         $kw_tracking,
-        $fb_page_optimise,
         $oviond_setup,
-        $instagram_optimise,
-        $youtube_optimise
+        $fb_page_access,
+        $instagram_access,        
+        $youTube_access,       
+        $gmb_optimise
+        
+             
     );
     
     

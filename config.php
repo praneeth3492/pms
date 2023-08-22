@@ -1,8 +1,8 @@
 <?php
 // config.php
 $host = "localhost";
-$user = "drsmart"; // Correct variable name
-$password = "Godaddy@3492";
+$user = "root"; // Correct variable name
+$password = "";
 $dbname = "pms";
 
 $conn = new mysqli($host, $user, $password, $dbname); // Use $user instead of $username

@@ -41,6 +41,63 @@ $stmt1->close();
 <html lang="en">
 
 <head>
+
+<style>
+    body {
+    background-color: #f3f4f6;
+    font-family: 'Arial', sans-serif;
+}
+
+ 
+ 
+ 
+.card {
+    background-color: #ffecb3;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    border: 1px solid #a8dadc;
+    background-color: #f1f3f4;
+}
+
+.btn-success {
+    background-color: #b2ebf2;
+    border-color: #a8dadc;
+    color: #333;
+}
+
+.btn-success:hover {
+    background-color: #a8dadc;
+    border-color: #99c2c2;
+}
+
+.notification-content,
+.dropdown-content-body {
+    background-color: #f0e5d8;
+}
+
+.avatar-img {
+    border-radius: 50%;
+}
+
+a {
+    color: #ff9a9e;
+}
+
+a:hover {
+    color: #ff6b6b;
+}
+
+
+</style> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details</title>
@@ -55,12 +112,13 @@ $stmt1->close();
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
 
-    <div class="sidebar sidebar-gestures">
+    <div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -235,10 +293,18 @@ $stmt1->close();
         </div>
     </div>
 
+     
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid col-md-8" style="left: 350px; margin-top:30px;">
-            <h2><?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?>Project Details</h2>
+    <div class="main-content">
+        <div class="container-fluid form-container">
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?></li> <!-- Replace with the variable containing the project name -->
+    </ol>
+</nav>
+            
                
             <form method="POST" action="save_project_details.php" enctype="multipart/form-data" id="project_details_form">
             <input type="hidden" name="project_id" id="project_id" value="<?php echo $project_id; ?>">

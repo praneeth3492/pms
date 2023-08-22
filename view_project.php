@@ -13,6 +13,135 @@ $project_id = $_GET['project_id'];
 <html lang="en">
 
 <head>
+<style>
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.project-box {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 200px; /* Adjust as needed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+.circular-progress {
+    position: relative;
+    width: 80px; /* Adjust the size as needed */
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.circular-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #e6e6e6;
+    stroke-width: 2;
+}
+
+.circle {
+    fill: none;
+    stroke: #4caf50; /* You can choose a different color if you prefer */
+    stroke-width: 2;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Additional styles for different card types */
+.project-box.project-details { background-color: #AEBDCA; }
+.project-box.project-insights { background-color: #F0EBE3; }
+.project-box.drs-details  { background-color: #AEBDCA; }
+.project-box.access-optimize { background-color: #F0EBE3; }
+.project-box.website { background-color: #AEBDCA; }
+.project-box.project-launch { background-color: #F0EBE3; }
+
+
+.percentage-bar {
+    background-color: #f0e5d8;
+    height: 10px;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+}
+
+.percentage-fill {
+    background-color: #000000;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+}
+
+ 
+ 
+
+
+/* Style the cards */
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card p.text-center {
+    color: #777;
+}
+
+ 
+
+ 
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Dashboard</title>
@@ -26,13 +155,14 @@ $project_id = $_GET['project_id'];
     <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="assets/css/mystyle.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="sidebar sidebar-gestures">
+    <div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -112,7 +242,6 @@ $project_id = $_GET['project_id'];
                         $totalCount = 9;
                         $drs_detail_percentage = round((($countNonNull-2)/$totalCount)*100,2);
                     }
-
                     $access_optimise_percentage = 0;
                     $sql = "SELECT * FROM access_optimise WHERE project_id = ?";
                     $stmt = $conn->prepare($sql);
@@ -121,22 +250,23 @@ $project_id = $_GET['project_id'];
                     $result = $stmt->get_result();
                     
                     if ($result->num_rows > 0) {
-
                         // Initialize count
                         $countNonNull = 0;
-
+                    
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                           if (!isset($value) or ($value != null))
-                            {
+                            if ($value !== null && $value !== '') {
                                 $countNonNull++;
                             }
                         }
-
-                        $totalCount = 16;
-                        $access_optimise_percentage = round((($countNonNull-2)/$totalCount)*100,2);
+                    
+                        $totalCount = 13; // Total number of fields (9 toggle fields + 4 input fields)
+                        $access_optimise_percentage = round(($countNonNull / $totalCount) * 100, 2);
                     }
+                    
+                    
+                    
 
                     $website_percentage = 0;
                     $sql = "SELECT * FROM website WHERE project_id = ?";
@@ -359,71 +489,119 @@ $project_id = $_GET['project_id'];
             </ul>
         </div>
     </div>
-
+    
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid col-md-8" style="left: 350px; margin-top:30px;">
+    <div class="main-content">
+        <div class="container-fluid form-container">
+            <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?php echo $project_id; ?>/ Harin- Neuro</li> <!-- Replace with the variable containing the project name -->
+    </ol>
+</nav>
+            <div class="card-container">
+
+        
+
+<!-- Cards go here -->
+
                 <div class="row">
 
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
+                <div class="col-md-4">
+    <div class="project-box project-details justify-content-center align-items-center">
+        <a href="project_details.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Project Details</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $project_details_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $project_details_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                            <a href="project_details.php?project_id=<?php echo $project_id; ?>" ><h4>Project Details</h4></a>
-                            <p class="text-center"><?php echo $project_details_percentage.'%' ?></p>
 
-                        </div>
-                    </div>
+<div class="col-md-4">
+    <div class="project-box project-insights justify-content-center align-items-center">
+        <a href="project_insights.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Project Insights</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $project_insight_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $project_insight_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
 
-                            <a href="project_insights.php?project_id=<?php echo $project_id; ?>"><h4>Project Insights</h4></a>
-                            <p class="text-center"><?php echo $project_insight_percentage.'%' ?></p>
 
-                        </div>
-                    </div>
+<div class="col-md-4">
+    <div class="project-box drs-details justify-content-center align-items-center">
+        <a href="drs_details.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Dr/s Details</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $drs_detail_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $drs_detail_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
+<div class="col-md-4">
+    <div class="project-box access-optimize justify-content-center align-items-center">
+        <a href="access_optimize.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Access & Optimize</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $access_optimise_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $access_optimise_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                            <a href="drs_details.php?project_id=<?php echo $project_id; ?>"><h4>Dr/s Details</h4></a>
-                            <p class="text-center"><?php echo $drs_detail_percentage.'%' ?></p>
 
-                        </div>
-                    </div>
+<div class="col-md-4">
+    <div class="project-box website justify-content-center align-items-center">
+        <a href="website.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Website</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $website_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $website_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
+<div class="col-md-4">
+    <div class="project-box project-launch justify-content-center align-items-center">
+        <a href="project_launch.php?project_id=<?php echo $project_id; ?>">
+            <h3 class="project-title">Project Launch</h3>
+        </a>
+        <div class="percentage-bar">
+            <div class="percentage-fill" style="width: <?php echo $project_launch_percentage; ?>%;"></div>
+        </div>
+        <p class="project-description"><?php echo $project_launch_percentage . '%'; ?></p>
+    </div>
+</div>
 
-                        <a href="access_optimize.php?project_id=<?php echo $project_id; ?>"><h4>Access & Optimize</h4></a>
-                        <p class="text-center"><?php echo $access_optimise_percentage.'%' ?></p>
 
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
-
-                        <a href="website.php?project_id=<?php echo $project_id; ?>" ><h4>Website</h4></a>
-                        <p class="text-center"><?php echo $website_percentage.'%' ?></p>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card justify-content-center align-items-center">
-
-                        <a href="project_launch.php?project_id=<?php echo $project_id; ?>"><h4>Project Launch</h4></a>
-                        <p class="text-center"><?php echo $project_launch_percentage.'%' ?></p>
-
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
+        </div>  <footer class="footer">
+    Powered by <a href="https://www.drsmart.com" target="_blank">DrSmart</a>
+</footer>
     </div>
+  
 
     <?php $conn->close(); ?>
+    <script>
+        document.querySelectorAll('.circular-progress').forEach(function(progress) {
+    var percentage = progress.getAttribute('data-percentage');
+    var circle = progress.querySelector('.circle');
+    circle.style.strokeDasharray = percentage + ', 100';
+});
+
+    </script>
     <script src="assets/js/lib/jquery.min.js"></script>
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
