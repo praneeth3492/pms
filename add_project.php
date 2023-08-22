@@ -25,11 +25,12 @@ require_once "config.php";
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/unix.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mystyle.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="">
 
-    <div class="sidebar sidebar-gestures">
+    <div class="sidebar1">
         <div class="nano">
             <div class="nano-content">
                 <ul>
@@ -166,9 +167,10 @@ require_once "config.php";
         </div>
     </div>
 
+ 
     <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
+    <div class="main-content">
+        <div class="container-fluid form-container">
                 <!-- /# row -->
                 <div id="main-content">
                 <h1 class="text-center mt-5">Add Project</h1>

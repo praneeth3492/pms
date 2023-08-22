@@ -35,6 +35,48 @@ require_once "config.php";
         .row:nth-child(odd) {
             background-color: #ffffff;
         } */
+        .project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #8fa4b8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-link:hover {
+    background: #F0EBE3;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    padding: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card a {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card p {
+    color: #666;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
     </style>
 
 </head>
@@ -398,7 +440,8 @@ require_once "config.php";
 
                     echo '<div class="col-md-4">';
                     echo '<div class="card justify-content-center align-items-center" >';
-                    echo '<a href="view_project.php?project_id=' . $row['project_id'] . '">'.$row["project_name"].'</a>';
+                    echo '<a href="view_project.php?project_id=' . $row['project_id'] . '" class="project-link">'.$row["project_name"].'</a>
+                    ';
                     echo '<p class="text-center">'.$total_percentage.'%</p>';
                     echo '</div>';
                     echo '</div>';

@@ -589,15 +589,15 @@ a.dt-button.active:not(.disabled) {
   box-shadow: none;
 }
 .btn-success {
-  background: #1de9b6;
-  border-color: #1de9b6;
+  background: #486179;
+  border-color: #486179;
   color: #ffffff;
 }
 .btn-success:hover,
 .btn-success:focus,
 .btn-success.active {
-  background: #13c095;
-  border-color: #1de9b6;
+  background: #486179;
+  border-color: #486179;
   color: #ffffff;
   box-shadow: none;
 }

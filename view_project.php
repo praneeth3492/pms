@@ -497,7 +497,7 @@ $project_id = $_GET['project_id'];
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
         <li class="breadcrumb-item"><a href="manager_dashboard.php">Projects</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><?php echo $project_id; ?>/ Harin- Neuro</li> <!-- Replace with the variable containing the project name -->
+        <li class="breadcrumb-item active" aria-current="page"><?php echo isset($project['project_name']) ? $project['project_name'].'/' : ''; ?> </li> <!-- Replace with the variable containing the project name -->
     </ol>
 </nav>
             <div class="card-container">
