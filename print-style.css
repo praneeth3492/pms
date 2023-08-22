@@ -1,0 +1,32 @@
+/* print-style.css */
+
+/* Hide unnecessary elements when printing */
+body {
+    background-color: white;
+}
+
+#add-fields-form {
+    display: none;
+}
+
+/* Show the logo when printing */
+.print-logo {
+    display: block;
+    text-align: center;
+}
+
+.print-logo img {
+    width: 150px; /* Adjust the logo size as needed */
+}
+
+/* Customize form layout when printing */
+.form-group {
+    margin-bottom: 10px;
+}
+
+/* Add any other custom styles for printing as needed */
+print-style.css
+
+#print-button {
+    display: none;
+}

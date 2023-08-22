@@ -1,0 +1,28 @@
+[16-Aug-2023 05:22:43 UTC] PHP Notice:  Undefined variable: _SESSION in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:22:43 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:22:43 UTC] PHP Notice:  Undefined variable: conn in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:22:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:22:50 UTC] PHP Notice:  Undefined variable: _SESSION in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:22:50 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:22:50 UTC] PHP Notice:  Undefined variable: conn in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:22:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:23:00 UTC] PHP Notice:  Undefined variable: _SESSION in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:23:00 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:23:00 UTC] PHP Notice:  Undefined variable: conn in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:23:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:23:02 UTC] PHP Notice:  Undefined variable: _SESSION in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:23:02 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 84
+[16-Aug-2023 05:23:02 UTC] PHP Notice:  Undefined variable: conn in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88
+[16-Aug-2023 05:23:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/yy8isgufrw4g/public_html/pms.praneethkumar.co.in/manager_dashboard.php on line 88

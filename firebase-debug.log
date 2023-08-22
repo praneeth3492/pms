@@ -1,0 +1,49 @@
+[debug] [2023-08-04T05:23:00.267Z] ----------------------------------------------------------------------
+[debug] [2023-08-04T05:23:00.268Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\thiru\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-08-04T05:23:00.268Z] CLI Version:   11.28.0
+[debug] [2023-08-04T05:23:00.268Z] Platform:      win32
+[debug] [2023-08-04T05:23:00.269Z] Node Version:  v18.12.1
+[debug] [2023-08-04T05:23:00.269Z] Time:          Fri Aug 04 2023 10:53:00 GMT+0530 (India Standard Time)
+[debug] [2023-08-04T05:23:00.270Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-04T05:23:00.326Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-04T05:23:00.326Z] > authorizing via signed-in user (praneeth.drsmart@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\mgs-prod
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-08-04T05:23:15.668Z] Using project from CLI flag: manchesterglobalschool
+[debug] [2023-08-04T05:23:15.671Z] > refreshing access token with scopes: []
+[debug] [2023-08-04T05:23:15.679Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-08-04T05:23:15.679Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-04T05:23:15.997Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-08-04T05:23:15.997Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-08-04T05:23:16.033Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/manchesterglobalschool [none]
+[debug] [2023-08-04T05:23:16.505Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/manchesterglobalschool 200
+[debug] [2023-08-04T05:23:16.506Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/manchesterglobalschool {"projectId":"manchesterglobalschool","projectNumber":"573009538719","displayName":"manchesterglobalschool","name":"projects/manchesterglobalschool","resources":{"hostingSite":"manchesterglobalschool"},"state":"ACTIVE","etag":"1_d4afe41e-ea9a-4547-ae0a-93ca3b517fbc"}
+[info] i  Using project manchesterglobalschool (manchesterglobalschool) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
