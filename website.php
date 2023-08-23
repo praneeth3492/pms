@@ -42,20 +42,37 @@ $stmt1->close();
 <head>
 <style>
 
-.btn.on {
-    color: white; /* Text color for the "Yes" button */
-    background-color: green; /* Background color for the "Yes" button */
+.yes-no-toggle .toggle-buttons {
+    display: flex;
 }
 
-.btn.off {
-    color: white; /* Text color for the "No" button */
-    background-color: red; /* Background color for the "No" button */
+.yes-no-toggle .toggle-input {
+    display: none;
 }
 
-.btn.selected {
-    /* Styles for the selected state */
-    border: 2px solid #333; /* Example of a border to show selection */
+.yes-no-toggle .toggle-label {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #333;
 }
+
+.yes-no-toggle .toggle-input.null:checked + .toggle-label {
+    background-color: grey;
+}
+
+.yes-no-toggle .toggle-input.yes:checked + .toggle-label {
+    background-color: green;
+    color: #fff;
+}
+
+.yes-no-toggle .toggle-input.no:checked + .toggle-label {
+    background-color: red;
+    color: #fff;
+}
+
+
+/* You may need to add other CSS styles to make it look exactly as you want */
 
 .domain-access-buttons .btn {
     background-color: #ccc;
@@ -289,117 +306,130 @@ $stmt1->close();
                 <div class="card">
                         <div class="row">
 
+
                         
+
                         <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="domain-access">Domain Access</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="domain_access" id="domain_access" value="<?php echo isset($project_data['domain_access']) ? $project_data['domain_access'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="domain-access-yes" name="domain_access" value="yes" class="toggle-input yes" <?php echo isset($project_data['domain_access']) && $project_data['domain_access'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="domain-access-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="domain-access-no" name="domain_access" value="no" class="toggle-input no" <?php echo isset($project_data['domain_access']) && $project_data['domain_access'] == 'no' ? 'checked' : ''; ?>>
+            <label for="domain-access-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
- 
 
-
-
-                            <!-- Wireframe -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="wireframe">Wireframe</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="wireframe" id="wireframe" value="<?php echo isset($project_data['wireframe']) ? $project_data['wireframe'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="wireframe-yes" name="wireframe" value="yes" class="toggle-input yes" <?php echo isset($project_data['wireframe']) && $project_data['wireframe'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="wireframe-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="wireframe-no" name="wireframe" value="no" class="toggle-input no" <?php echo isset($project_data['wireframe']) && $project_data['wireframe'] == 'no' ? 'checked' : ''; ?>>
+            <label for="wireframe-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
+
  
 
-<!-- Website Content -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="website_content">Website Content</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="website_content" id="website_content" value="<?php echo isset($project_data['website_content']) ? $project_data['website_content'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="website_content-yes" name="website_content" value="yes" class="toggle-input yes" <?php echo isset($project_data['website_content']) && $project_data['website_content'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="website_content-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="website_content-no" name="website_content" value="no" class="toggle-input no" <?php echo isset($project_data['website_content']) && $project_data['website_content'] == 'no' ? 'checked' : ''; ?>>
+            <label for="website_content-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
+
 
 <!-- Web Design -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="web_design">Web Design</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="web_design" id="web_design" value="<?php echo isset($project_data['web_design']) ? $project_data['web_design'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="web_design-yes" name="web_design" value="yes" class="toggle-input yes" <?php echo isset($project_data['web_design']) && $project_data['web_design'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="web_design-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="web_design-no" name="web_design" value="no" class="toggle-input no" <?php echo isset($project_data['web_design']) && $project_data['web_design'] == 'no' ? 'checked' : ''; ?>>
+            <label for="web_design-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
 
+
 <!-- Medical SEO -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="medical_seo">Medical SEO</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="medical_seo" id="medical_seo" value="<?php echo isset($project_data['medical_seo']) ? $project_data['medical_seo'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="medical_seo-yes" name="medical_seo" value="yes" class="toggle-input yes" <?php echo isset($project_data['medical_seo']) && $project_data['medical_seo'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="medical_seo-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="medical_seo-no" name="medical_seo" value="no" class="toggle-input no" <?php echo isset($project_data['medical_seo']) && $project_data['medical_seo'] == 'no' ? 'checked' : ''; ?>>
+            <label for="medical_seo-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
 
 <!-- Technical SEO -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="technical_seo">Technical SEO</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="technical_seo" id="technical_seo" value="<?php echo isset($project_data['technical_seo']) ? $project_data['technical_seo'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="technical_seo-yes" name="technical_seo" value="yes" class="toggle-input yes" <?php echo isset($project_data['technical_seo']) && $project_data['technical_seo'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="technical_seo-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="technical_seo-no" name="technical_seo" value="no" class="toggle-input no" <?php echo isset($project_data['technical_seo']) && $project_data['technical_seo'] == 'no' ? 'checked' : ''; ?>>
+            <label for="technical_seo-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
+
 
 <!-- Whatsapp Setup -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
-        <label for="whatsapp_setup">Whatsapp Setup</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="whatsapp_setup" id="whatsapp_setup" value="<?php echo isset($project_data['whatsapp_setup']) ? $project_data['whatsapp_setup'] : ''; ?>">
+    <div class="form-group yes-no-toggle">
+        <label for="whatsapp_setup">WhatsApp Setup</label>
+        <div class="toggle-buttons">
+            <input type="radio" id="whatsapp_setup-yes" name="whatsapp_setup" value="yes" class="toggle-input yes" <?php echo isset($project_data['whatsapp_setup']) && $project_data['whatsapp_setup'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="whatsapp_setup-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="whatsapp_setup-no" name="whatsapp_setup" value="no" class="toggle-input no" <?php echo isset($project_data['whatsapp_setup']) && $project_data['whatsapp_setup'] == 'no' ? 'checked' : ''; ?>>
+            <label for="whatsapp_setup-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
+
 
 <!-- Website Testing -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="website_testing">Website Testing</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="website_testing" id="website_testing" value="<?php echo isset($project_data['website_testing']) ? $project_data['website_testing'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="website_testing-yes" name="website_testing" value="yes" class="toggle-input yes" <?php echo isset($project_data['website_testing']) && $project_data['website_testing'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="website_testing-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="website_testing-no" name="website_testing" value="no" class="toggle-input no" <?php echo isset($project_data['website_testing']) && $project_data['website_testing'] == 'no' ? 'checked' : ''; ?>>
+            <label for="website_testing-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
 
+
 <!-- Beta Ready -->
 <div class="col-md-3">
-    <div class="form-group domain-access-buttons">
+    <div class="form-group yes-no-toggle">
         <label for="beta_ready">Beta Ready</label>
-        <div class="button-group">
-            <button type="button" class="btn on" data-value="yes">Yes</button>
-            <button type="button" class="btn off" data-value="no">No</button>
-            <input type="hidden" name="beta_ready" id="beta_ready" value="<?php echo isset($project_data['beta_ready']) ? $project_data['beta_ready'] : ''; ?>">
+        <div class="toggle-buttons">
+            <input type="radio" id="beta_ready-yes" name="beta_ready" value="yes" class="toggle-input yes" <?php echo isset($project_data['beta_ready']) && $project_data['beta_ready'] == 'yes' ? 'checked' : ''; ?>>
+            <label for="beta_ready-yes" class="toggle-label">Yes</label>
+            <input type="radio" id="beta_ready-no" name="beta_ready" value="no" class="toggle-input no" <?php echo isset($project_data['beta_ready']) && $project_data['beta_ready'] == 'no' ? 'checked' : ''; ?>>
+            <label for="beta_ready-no" class="toggle-label">No</label>
         </div>
     </div>
 </div>
+
 
 
                         </div>
@@ -439,45 +469,11 @@ $stmt1->close();
     <script src="assets/js/scripts.js"></script>
 
    <script> 
-  $(document).ready(function() {
-    function handleButtonGroup(fieldName) {
-        var value = $('#' + fieldName).val();
-        
-        if (value === 'yes') {
-            $('.' + fieldName + '-buttons .on').addClass('active');
-        } else if (value === 'no') {
-            $('.' + fieldName + '-buttons .off').addClass('active');
-        }
-        
-        $('.' + fieldName + '-buttons .btn').click(function() {
-            var button = $(this);
-            var currentValue = $('#' + fieldName).val();
-            var buttonValue = button.data('value');
-            
-            if (currentValue === buttonValue) {
-                button.removeClass('active');
-                $('#' + fieldName).val('');
-            } else {
-                $('.' + fieldName + '-buttons .btn').removeClass('active');
-                button.addClass('active');
-                $('#' + fieldName).val(buttonValue);
-            }
-        });
-    }
-
-    var fields = [
-        'domain_access',
-        'wireframe',
-        'website_content',
-        'web_design',
-        'medical_seo',
-        'technical_seo',
-        'whatsapp_setup',
-        'website_testing',
-        'beta_ready'
-    ];
-
-    fields.forEach(handleButtonGroup);
+ $('.btn-group .btn').click(function(){
+    var value = $(this).data('value');
+    $(this).siblings().removeClass('selected');
+    $(this).addClass('selected');
+    $(this).parent().find('input').val(value);
 });
 
 

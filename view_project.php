@@ -242,55 +242,62 @@ $project_id = $_GET['project_id'];
                         $totalCount = 9;
                         $drs_detail_percentage = round((($countNonNull-2)/$totalCount)*100,2);
                     }
+                   
+                    
                     $access_optimise_percentage = 0;
-                    $sql = "SELECT * FROM access_optimise WHERE project_id = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("i", $project_id);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    
-                    if ($result->num_rows > 0) {
-                        // Initialize count
-                        $countNonNull = 0;
-                    
-                        // Loop through the row's values
-                        foreach ($result->fetch_assoc() as $value) {
-                            // Check if the value is not null
-                            if ($value !== null && $value !== '') {
-                                $countNonNull++;
-                            }
-                        }
-                    
-                        $totalCount = 13; // Total number of fields (9 toggle fields + 4 input fields)
-                        $access_optimise_percentage = round(($countNonNull / $totalCount) * 100, 2);
-                    }
-                    
-                    
-                    
+$sql = "SELECT * FROM access_optimise WHERE project_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-                    $website_percentage = 0;
-                    $sql = "SELECT * FROM website WHERE project_id = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("i", $project_id);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+
+    // Define fields to be counted
+    $fields_to_count = [
+        'gmb_accounts', 'gmb_briefcase', 'gmb_access', 'kw_tags',
+        'kw_reviews', 'kw_replies', 'kw_qa', 'kw_tracking', 'oviond_setup',
+        'fb_page_access', 'instagram_access', 'youTube_access', 'gmb_optimise' 
+    ];
+
+    $countNonNull = 0;
+    $totalCount = count($fields_to_count);
+
+    foreach ($fields_to_count as $field) {
+        $value = $row[$field];
+        if ($value !== null && $value !== '' && $value !== 'no') {
+        
+            $countNonNull++;
+        }
+    }
+
+    $access_optimise_percentage = round(($countNonNull / $totalCount) * 100, 2);
+}
+
                     
-                    if ($result->num_rows > 0) {
+$website_percentage = 0;
+$sql = "SELECT * FROM website WHERE project_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-                        // Initialize count
-                        $countNonNull = 0;
+if ($result->num_rows > 0) {
+    $countNonNull = 0;
+    $row = $result->fetch_assoc();
+    
+    $website_percentage = 0;
+    $countYes = 0; // Count of 'yes' values
+    foreach ($row as $key => $value) {
+        if ($value === 'yes') {
+            $countYes++;
+        }
+    }
 
-                        // Loop through the row's values
-                        foreach ($result->fetch_assoc() as $value) {
-                            // Check if the value is not null
-                           if (!isset($value) or ($value != null)) {
-                                $countNonNull++;
-                            }
-                        }
-
-                        $totalCount = 9;
-                        $website_percentage = round((($countNonNull-2)/$totalCount)*100,2);
-                    }
+    $totalCount = 9; // Total number of toggle buttons
+    $website_percentage = round(($countYes / $totalCount) * 100, 2);
+}
 
 
                     $project_launch_percentage = 0;
@@ -556,6 +563,7 @@ $project_id = $_GET['project_id'];
             <div class="percentage-fill" style="width: <?php echo $access_optimise_percentage; ?>%;"></div>
         </div>
         <p class="project-description"><?php echo $access_optimise_percentage . '%'; ?></p>
+        
     </div>
 </div>
 
