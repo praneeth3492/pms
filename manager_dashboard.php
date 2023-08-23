@@ -263,7 +263,7 @@ require_once "config.php";
                     $totalCount1 = 18;
                     $totalCount2 = 9;
                     $totalCount3 = 9;
-                    $totalCount4 = 16;
+                    $totalCount4 = 13;
                     $totalCount5 = 9;
                     $totalCount6 = 9; 
 
@@ -289,7 +289,7 @@ require_once "config.php";
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                            if ($value !== null) {
+                            if (!isset($value) or ($value != null)) {
                                 $countNonNull1++;
                             }
                         }
@@ -314,7 +314,7 @@ require_once "config.php";
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                            if ($value !== null) {
+                            if (!isset($value) or ($value != null)) {
                                 $countNonNull2++;
                             }
                         }
@@ -339,7 +339,7 @@ require_once "config.php";
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                            if ($value !== null) {
+                            if (!isset($value) or ($value != null)) {
                                 $countNonNull3++;
                             }
                         }
@@ -367,7 +367,7 @@ require_once "config.php";
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                            if ($value !== null) {
+                            if (!isset($value) or ($value != null)) {
                                 $countNonNull4++;
                             }
                         }
@@ -395,7 +395,7 @@ require_once "config.php";
                         // Loop through the row's values
                         foreach ($result->fetch_assoc() as $value) {
                             // Check if the value is not null
-                            if ($value !== null) {
+                            if (!isset($value) or ($value != null)) {
                                 $countNonNull5++;
                             }
                         }

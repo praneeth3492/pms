@@ -255,15 +255,15 @@ $stmt1->close();
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Dr/s</label>
-                                        <input type="text" name="drs" id="drs" class="form-control" value="<?php echo isset($project_data['drs']) ? $project_data['drs'] : ''; ?>"placeholder="Dr/s" aria-describedby="helpId">
+                                        <label for="">Dr Name </label>
+                                        <input type="text" name="drs" id="drs" class="form-control" value="<?php echo isset($project_data['drs']) ? $project_data['drs'] : ''; ?>"placeholder="Dr Name" aria-describedby="helpId">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Name</label>
-                                        <input type="text" name="name" id="name" class="form-control"  value="<?php echo isset($project_data['name']) ? $project_data['name'] : ''; ?>" placeholder="Name" aria-describedby="helpId">
+                                        <label for="">Expertise</label>
+                                        <input type="text" name="name" id="name" class="form-control"  value="<?php echo isset($project_data['name']) ? $project_data['name'] : ''; ?>" placeholder="Expertise" aria-describedby="helpId">
                                     </div>
                                 </div>
 
@@ -304,8 +304,8 @@ $stmt1->close();
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for=""> CV/s</label>
-                                        <input type="file" name="cvs" id="cvs" class="form-control" value="<?php echo isset($project_data['cvs']) ? $project_data['cvs'] : ''; ?>"placeholder="CV/s" aria-describedby="helpId">
+                                        <label for=""> CV</label>
+                                        <input type="file" name="cvs" id="cvs" class="form-control" value="<?php echo isset($project_data['cvs']) ? $project_data['cvs'] : ''; ?>"placeholder="CV" aria-describedby="helpId">
 
 
   <?php
@@ -323,7 +323,7 @@ if (isset($project_data['cvs'])) {
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Dr/s  Photos</label>
+                                        <label for="">Doctor  Photos</label>
                                         <input type="file" name="drs_photos" id="drs_photos" value="<?php echo isset($project_data['drs_photos']) ? $project_data['drs_photos'] : ''; ?>"class="form-control" placeholder="Dr/s  Photos" aria-describedby="helpId">
 
                                      <?php

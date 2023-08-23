@@ -55,7 +55,7 @@
     font-size: 0.9em;
     height: 30px;
     line-height: 40px;
-    color: #03A9F5  ;
+    color: #55728f  ;
     text-transform: uppercase;
     font-weight: normal;
 }
@@ -107,12 +107,12 @@ right: 45px;
 .sidebar .nano-content > ul li:hover > a,
 .sidebar .nano-content > ul li.active > a,
 .sidebar .nano-content > ul li.open > a {
-    color: #03A9F5 ;
+    color: #55728f ;
     position: relative;
 }
 
 .sidebar .nano-content > ul li.active > a::before {
-    background: #03A9F5 ;
+    background: #55728f ;
     content: "";
     height: 100%;
     left: 0;

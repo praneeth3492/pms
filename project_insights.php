@@ -262,7 +262,7 @@ $stmt1->close();
                         <div class="row">
 
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Website Score</label>
                                     <input type="text" name="website_score" id="website_score" class="form-control"
@@ -271,7 +271,7 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Category Rank</label>
                                     <input type="text" name="category_rank" id="category_rank" class="form-control"
@@ -280,26 +280,9 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="">20 Keywords</label>
-                                    <input type="text" name="20_keywords" id="20_keywords" class="form-control"
-                                        placeholder="20 Keywords"
-                                        value="<?php echo isset($project_data['keywords_20']) ? $project_data['keywords_20'] : ''; ?>"
-                                        aria-describedby="helpId">
-                                </div>
-                            </div>
+                           
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="">KW Rankings</label>
-                                    <input type="text" name="kw_rankings" id="kw_rankings" class="form-control"
-                                        value="<?php echo isset($project_data['kw_rankings']) ? $project_data['kw_rankings'] : ''; ?>"
-                                        placeholder="KW Rankings" aria-describedby="helpId">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">GMB Reviews</label>
                                     <input type="text" name="gmb_reviews" id="gmb_reviews" class="form-control"
@@ -308,7 +291,7 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">GMB Rating</label>
                                     <input type="text" name="gmb_rating" id="gmb_rating" class="form-control"
@@ -317,7 +300,7 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">FB Page Likes</label>
                                     <input type="text" name="fb_page_likes" id="fb_page_likes" class="form-control"
@@ -326,7 +309,7 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Insta Followers</label>
                                     <input type="text" name="insta_followers" id="insta_followers"
@@ -335,7 +318,7 @@ $stmt1->close();
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">YouTube Views</label>
                                     <input type="text" name="youtube_views" id="youtube_views"
@@ -343,6 +326,22 @@ $stmt1->close();
                                         class="form-control" placeholder="YouTube Views" aria-describedby="helpId">
                                 </div>
                             </div>
+                            <div class="col-md-6">
+    <div class="form-group">
+        <label for="20_keywords">20 Keywords</label>
+        <textarea name="20_keywords" id="20_keywords" class="form-control"
+            placeholder="20 Keywords" aria-describedby="helpId" rows="4"><?php echo isset($project_data['keywords_20']) ? $project_data['keywords_20'] : ''; ?></textarea>
+    </div>
+</div>
+
+
+                            <div class="col-md-6">
+    <div class="form-group">
+        <label for="kw_rankings">KW Rankings</label>
+        <textarea name="kw_rankings" id="kw_rankings" class="form-control"
+            placeholder="KW Rankings" aria-describedby="helpId" rows="4"><?php echo isset($project_data['kw_rankings']) ? $project_data['kw_rankings'] : ''; ?></textarea>
+    </div>
+</div>
 
                         </div>
 

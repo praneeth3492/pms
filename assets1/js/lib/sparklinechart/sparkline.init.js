@@ -227,7 +227,7 @@ $(document).ready(function() {
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#03a9f5'
+            barColor: '#55728f'
         });
         $('#sparklinedash18').sparkline([ 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0], {
             type: 'bar',
@@ -274,7 +274,7 @@ $(document).ready(function() {
             height: '200',
             barWidth: 40,
             barSpacing: 40,
-            barColor: '#03a9f5'
+            barColor: '#55728f'
         });
         $('#sparklinedash24').sparkline([ 0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0], {
             type: 'bar',

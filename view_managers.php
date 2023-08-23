@@ -15,6 +15,7 @@ require_once "config.php";
     <title>View Managers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -36,7 +37,7 @@ require_once "config.php";
                 <ul>
                     <li><a href="admin_dashboard.php" class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard </a></li>
                     <li ><a href="add_manager.php" class=""><i class="ti-home"></i> Add Manager </a></li>
-                    <li ><a href="add_client.php" class=""><i class="ti-home"></i> Add Client </a></li>
+                    <li ><a href="add_project.php" class=""><i class="ti-home"></i> Add Project </a></li>
                     <li class="active"><a href="view_managers.php" class=""><i class="ti-home"></i> View Managers </a></li>
                     <li><a href="assign_project.php" class=""><i class="ti-home"></i> Assign Project </a></li>
 
@@ -64,9 +65,9 @@ require_once "config.php";
                 <div id="main-content">
                 <h1 class="text-center mt-5">View Managers</h1>
                 <div class="row justify-content-center mt-5">
-                    <div class="col-md-6">
-                    <div class="order-list-item">
-                        <table class="table table-bordered">
+                    <div class="col-md-12">
+                    <div class="table-container">
+                    <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Manager ID</th>
@@ -113,5 +114,6 @@ require_once "config.php";
             fetchManagers();
         });
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

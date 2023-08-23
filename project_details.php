@@ -348,31 +348,26 @@ a:hover {
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Domain Name/s</label>
-                                        <input type="text" name="domain_names" id="domain_names" class="form-control" placeholder="Domain Name/s"  value="<?php echo isset($project_data['domain_names']) ? $project_data['domain_names'] : ''; ?>" aria-describedby="helpId">
+                                        <label for="">Domain Name</label>
+                                        <input type="text" name="domain_names" id="domain_names" class="form-control" placeholder="Domain Name"  value="<?php echo isset($project_data['domain_names']) ? $project_data['domain_names'] : ''; ?>" aria-describedby="helpId">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Specialisation/s</label>
-                                        <input type="text" name="specialisations" id="specialisations" class="form-control" placeholder="Specialisation/s"  value="<?php echo isset($project_data['specialisations']) ? $project_data['specialisations'] : ''; ?>" aria-describedby="helpId">
+                                        <label for="">Specialisation</label>
+                                        <input type="text" name="specialisations" id="specialisations" class="form-control" placeholder="Specialisation"  value="<?php echo isset($project_data['specialisations']) ? $project_data['specialisations'] : ''; ?>" aria-describedby="helpId">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Working Hrs/s</label>
+                                        <label for="">Working Hrs</label>
                                         <input type="text" name="working_hrs" id="working_hrs" class="form-control" placeholder="Working Hrs"  value="<?php echo isset($project_data['working_hrs']) ? $project_data['working_hrs'] : ''; ?>"aria-describedby="helpId">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Coordinator</label>
-                                        <input type="text" name="co_ordinator" id="co_ordinator" class="form-control" placeholder="Coordinator"  value="<?php echo isset($project_data['co_ordinator']) ? $project_data['co_ordinator'] : ''; ?>"aria-describedby="helpId">
-                                    </div>
-                                </div>
+                               
 
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -383,8 +378,8 @@ a:hover {
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Location/s</label>
-                                        <input type="text" name="locations" id="locations" class="form-control" placeholder="Location/s"  value="<?php echo isset($project_data['locations']) ? $project_data['locations'] : ''; ?>"aria-describedby="helpId">
+                                        <label for="">Location</label>
+                                        <input type="text" name="locations" id="locations" class="form-control" placeholder="Location"  value="<?php echo isset($project_data['locations']) ? $project_data['locations'] : ''; ?>"aria-describedby="helpId">
                                     </div>
                                 </div>
 
@@ -397,8 +392,8 @@ a:hover {
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Address/es</label>
-                                        <input type="text" name="addresses" id="addresses" class="form-control" placeholder="Address/es"  value="<?php echo isset($project_data['addresses']) ? $project_data['addresses'] : ''; ?>"aria-describedby="helpId">
+                                        <label for="">Address</label>
+                                        <input type="text" name="addresses" id="addresses" class="form-control" placeholder="Address"  value="<?php echo isset($project_data['addresses']) ? $project_data['addresses'] : ''; ?>"aria-describedby="helpId">
                                     </div>
                                 </div>
 
@@ -481,6 +476,15 @@ a:hover {
                                     <div class="form-group">
                                         <label for="">List of Services</label>
                                         <input type="text" name="list_of_services" id="list_of_services" class="form-control" placeholder="List of Services"  value="<?php echo isset($project_data['list_of_services']) ? $project_data['list_of_services'] : ''; ?>"aria-describedby="helpId">
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Upload Service Content</label>
+                                        <input type="text" name="co_ordinator" id="co_ordinator" class="form-control" placeholder="Service Link"  value="<?php echo isset($project_data['co_ordinator']) ? $project_data['co_ordinator'] : ''; ?>"aria-describedby="helpId">
                                     </div>
                                 </div>
                         </div>

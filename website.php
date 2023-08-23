@@ -40,6 +40,43 @@ $stmt1->close();
 <html lang="en">
 
 <head>
+<style>
+
+.btn.on {
+    color: white; /* Text color for the "Yes" button */
+    background-color: green; /* Background color for the "Yes" button */
+}
+
+.btn.off {
+    color: white; /* Text color for the "No" button */
+    background-color: red; /* Background color for the "No" button */
+}
+
+.btn.selected {
+    /* Styles for the selected state */
+    border: 2px solid #333; /* Example of a border to show selection */
+}
+
+.domain-access-buttons .btn {
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.domain-access-buttons .on.active {
+    background-color: #28a745; /* Green color for "On" */
+}
+
+.domain-access-buttons .off.active {
+    background-color: #dc3545; /* Red color for "Off" */
+}
+
+</style>
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager Dashboard</title>
@@ -252,69 +289,118 @@ $stmt1->close();
                 <div class="card">
                         <div class="row">
 
+                        
+                        <div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="domain-access">Domain Access</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="domain_access" id="domain_access" value="<?php echo isset($project_data['domain_access']) ? $project_data['domain_access'] : ''; ?>">
+        </div>
+    </div>
+</div>
+ 
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Domain Access</label>
-                                        <input type="text" name="domain_access" id="domain_access"  value="<?php echo isset($project_data['domain_access']) ? $project_data['domain_access'] : ''; ?>" class="form-control" placeholder="Domain Access" aria-describedby="helpId">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Wireframe</label>
-                                        <input type="text" name="wireframe" id="wireframe"  value="<?php echo isset($project_data['wireframe']) ? $project_data['wireframe'] : ''; ?>" class="form-control" placeholder="Wireframe" aria-describedby="helpId">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Website Content</label>
-                                        <input type="text" name="website_content" id="website_content"  value="<?php echo isset($project_data['website_content']) ? $project_data['website_content'] : ''; ?>" class="form-control" placeholder="Website Content" aria-describedby="helpId">
-                                    </div>
-                                </div>
+                            <!-- Wireframe -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="wireframe">Wireframe</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="wireframe" id="wireframe" value="<?php echo isset($project_data['wireframe']) ? $project_data['wireframe'] : ''; ?>">
+        </div>
+    </div>
+</div>
+ 
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Web design</label>
-                                        <input type="text" name="web_design" id="web_design"  value="<?php echo isset($project_data['web_design']) ? $project_data['web_design'] : ''; ?>" class="form-control" placeholder="Web design" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Website Content -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="website_content">Website Content</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="website_content" id="website_content" value="<?php echo isset($project_data['website_content']) ? $project_data['website_content'] : ''; ?>">
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Medical SEO</label>
-                                        <input type="text" name="medical_seo" id="medical_seo"  value="<?php echo isset($project_data['medical_seo']) ? $project_data['medical_seo'] : ''; ?>" class="form-control" placeholder="Medical SEO" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Web Design -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="web_design">Web Design</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="web_design" id="web_design" value="<?php echo isset($project_data['web_design']) ? $project_data['web_design'] : ''; ?>">
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Technical SEO</label>
-                                        <input type="text" name="technical_seo" id="technical_seo"  value="<?php echo isset($project_data['technical_seo']) ? $project_data['technical_seo'] : ''; ?>" class="form-control" placeholder="Technical SEO" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Medical SEO -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="medical_seo">Medical SEO</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="medical_seo" id="medical_seo" value="<?php echo isset($project_data['medical_seo']) ? $project_data['medical_seo'] : ''; ?>">
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">WhatsApp Setup</label>
-                                        <input type="text" name="whatsapp_setup" id="whatsapp_setup"  value="<?php echo isset($project_data['whatsapp_setup']) ? $project_data['whatsapp_setup'] : ''; ?>" class="form-control" placeholder="WhatsApp Setup" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Technical SEO -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="technical_seo">Technical SEO</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="technical_seo" id="technical_seo" value="<?php echo isset($project_data['technical_seo']) ? $project_data['technical_seo'] : ''; ?>">
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for=""> Website Testing</label>
-                                        <input type="text" name="website_testing" id="website_testing"  value="<?php echo isset($project_data['website_testing']) ? $project_data['website_testing'] : ''; ?>" class="form-control" placeholder="Website Testing" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Whatsapp Setup -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="whatsapp_setup">Whatsapp Setup</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="whatsapp_setup" id="whatsapp_setup" value="<?php echo isset($project_data['whatsapp_setup']) ? $project_data['whatsapp_setup'] : ''; ?>">
+        </div>
+    </div>
+</div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Beta Ready</label>
-                                        <input type="text" name="beta_ready" id="beta_ready"  value="<?php echo isset($project_data['beta_ready']) ? $project_data['beta_ready'] : ''; ?>" class="form-control" placeholder="Beta Ready" aria-describedby="helpId">
-                                    </div>
-                                </div>
+<!-- Website Testing -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="website_testing">Website Testing</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="website_testing" id="website_testing" value="<?php echo isset($project_data['website_testing']) ? $project_data['website_testing'] : ''; ?>">
+        </div>
+    </div>
+</div>
+
+<!-- Beta Ready -->
+<div class="col-md-3">
+    <div class="form-group domain-access-buttons">
+        <label for="beta_ready">Beta Ready</label>
+        <div class="button-group">
+            <button type="button" class="btn on" data-value="yes">Yes</button>
+            <button type="button" class="btn off" data-value="no">No</button>
+            <input type="hidden" name="beta_ready" id="beta_ready" value="<?php echo isset($project_data['beta_ready']) ? $project_data['beta_ready'] : ''; ?>">
+        </div>
+    </div>
+</div>
+
 
                         </div>
 
@@ -351,6 +437,51 @@ $stmt1->close();
     <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
     <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <script src="assets/js/scripts.js"></script>
+
+   <script> 
+  $(document).ready(function() {
+    function handleButtonGroup(fieldName) {
+        var value = $('#' + fieldName).val();
+        
+        if (value === 'yes') {
+            $('.' + fieldName + '-buttons .on').addClass('active');
+        } else if (value === 'no') {
+            $('.' + fieldName + '-buttons .off').addClass('active');
+        }
+        
+        $('.' + fieldName + '-buttons .btn').click(function() {
+            var button = $(this);
+            var currentValue = $('#' + fieldName).val();
+            var buttonValue = button.data('value');
+            
+            if (currentValue === buttonValue) {
+                button.removeClass('active');
+                $('#' + fieldName).val('');
+            } else {
+                $('.' + fieldName + '-buttons .btn').removeClass('active');
+                button.addClass('active');
+                $('#' + fieldName).val(buttonValue);
+            }
+        });
+    }
+
+    var fields = [
+        'domain_access',
+        'wireframe',
+        'website_content',
+        'web_design',
+        'medical_seo',
+        'technical_seo',
+        'whatsapp_setup',
+        'website_testing',
+        'beta_ready'
+    ];
+
+    fields.forEach(handleButtonGroup);
+});
+
+
+</script>
 
     <!-- <script>
         $(document).ready(function () {

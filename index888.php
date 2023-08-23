@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Webstrot Admin : Creative Admin Dashboard</title>
+    <title>DrSmart : Creative Admin Dashboard</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -191,7 +191,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Webstrot Admin</span></a></div>
+            <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>DrSmart</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>

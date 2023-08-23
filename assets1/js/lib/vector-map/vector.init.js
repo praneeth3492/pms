@@ -14,7 +14,7 @@
         enableZoom: true,
         showTooltip: true,
         values: sample_data,
-        scaleColors: ['#1de9b6', '#03a9f5'],
+        scaleColors: ['#1de9b6', '#55728f'],
         normalizeFunction: 'polynomial'
     });
 

@@ -8,7 +8,7 @@ var map = new Datamap({
      geographyConfig: {
          popupOnHover: false,
          highlightOnHover: false,
-         borderColor: '#03A9F5',
+         borderColor: '#55728f',
          borderWidth: 2,
          highlightBorderWidth: 5,
          highlightFillColor: '#fff',
@@ -29,7 +29,7 @@ var map = new Datamap({
          'Visited': '#f5f5f5',
          'neato': '#fff',
          'white': '#fff',
-         defaultFill: '#03A9F5'
+         defaultFill: '#55728f'
      }
  });
 

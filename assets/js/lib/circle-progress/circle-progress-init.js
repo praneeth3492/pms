@@ -6,7 +6,7 @@
     value: 0.75,
     size: 100,
     fill: {
-      gradient: ["#03a9f5", "#1de9b6"]
+      gradient: ["#55728f", "#1de9b6"]
     }
   });
     
@@ -16,7 +16,7 @@
     value: 0.75,
     size: 100,
     fill: {
-      gradient: ["#03a9f5", "#1de9b6"]
+      gradient: ["#55728f", "#1de9b6"]
     }
   });
     
@@ -26,7 +26,7 @@
     value: 0.75,
     size: 100,
     fill: {
-      gradient: ["#03a9f5", "#1de9b6"]
+      gradient: ["#55728f", "#1de9b6"]
     }
   });
     
@@ -36,7 +36,7 @@
     value: 0.75,
     size: 100,
     fill: {
-      gradient: ["#03a9f5", "#1de9b6"]
+      gradient: ["#55728f", "#1de9b6"]
     }
   });
 
@@ -44,7 +44,7 @@
         value: 0.50,
         size: 100,
         fill: {
-            gradient: ["#03a9f5"]
+            gradient: ["#55728f"]
         }
     });
     $('#danger-circle-card').circleProgress({

@@ -33,7 +33,7 @@ require_once "config.php";
             <div class="nano-content">
                 <ul>
                     <li class="label">Main</li>
-                    <li class="active"><a href="dashboard.html" class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard </a></li>
+                    <li class="active"><a href="#" class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard </a></li>
                     <li><a href="add_manager.php" class=""><i class="ti-home"></i> Add Manager </a></li>
                     <li><a href="add_project.php" class=""><i class="ti-home"></i> Add Project </a></li>
                     <li><a href="view_managers.php" class=""><i class="ti-home"></i> View Managers </a></li>
@@ -46,7 +46,7 @@ require_once "config.php";
     </div>
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Webstrot Admin</span></a></div>
+            <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>DrSmart</span></a></div>
         </div>
         <div class="pull-right p-r-15">
             <ul>

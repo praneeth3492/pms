@@ -62,7 +62,7 @@ require_once "config.php";
     <div class="header">
         <div class="pull-left">
             <div class="logo"><a href="index.html">
-                    <!-- <img src="assets/images/logo.png" alt="" /> --><span>Webstrot Admin</span></a></div>
+                    <!-- <img src="assets/images/logo.png" alt="" /> --><span>DrSmart</span></a></div>
         </div>
         <div class="pull-right p-r-15">
             <ul>
